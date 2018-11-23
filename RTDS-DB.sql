@@ -10,7 +10,7 @@ CREATE TABLE `client` (
   `date_created` datetime DEFAULT CURRENT_TIMESTAMP,
   `date_updated` datetime ON UPDATE CURRENT_TIMESTAMP,
   `public_id` varchar(50) DEFAULT NULL,
-  `password` varchar(30) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
   `admin` tinyint(1) DEFAULT FALSE,
   PRIMARY KEY (`client_id`),
   UNIQUE KEY `public_id` (`public_id`)
@@ -24,7 +24,7 @@ CREATE TABLE `admin` (
   `admin_email` varchar(30) DEFAULT NULL,
   `last_update` datetime ON UPDATE CURRENT_TIMESTAMP,
   `date_created` datetime DEFAULT CURRENT_TIMESTAMP,
-  `password` varchar(30) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
   `admin` tinyint(1) DEFAULT TRUE,
   PRIMARY KEY (`admin_id`),
   UNIQUE KEY `public_id` (`public_id`)

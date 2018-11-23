@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var cors=require('cors');
 var routes = require('./routes/index');
 var Clients = require('./routes/clients');
+var Admins = require('./routes/admins');
 var app = express();
 
 // view engine setup
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/Clients', Clients);
+app.use('/Admins', Admins);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
