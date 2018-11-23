@@ -1,5 +1,14 @@
+
+drop table invoice;
+drop table quotation_detail;
+drop table quotation;
+drop table service;
+drop table admin;
+drop table client;
+
 CREATE TABLE `client` (
   `client_id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_company_name` varchar(20),
   `client_firstname` varchar(20) DEFAULT NULL,
   `client_lastname` varchar(20) DEFAULT NULL,
   `client_email` varchar(30) DEFAULT NULL,
@@ -14,7 +23,7 @@ CREATE TABLE `client` (
   `admin` tinyint(1) DEFAULT FALSE,
   PRIMARY KEY (`client_id`),
   UNIQUE KEY `public_id` (`public_id`)
-);
+)AUTO_INCREMENT=1;
 
 CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -28,7 +37,7 @@ CREATE TABLE `admin` (
   `admin` tinyint(1) DEFAULT TRUE,
   PRIMARY KEY (`admin_id`),
   UNIQUE KEY `public_id` (`public_id`)
-); 	
+)AUTO_INCREMENT=1; 	
 
 CREATE TABLE `service` (
 	`service_id`	INTEGER NOT NULL,
@@ -37,7 +46,7 @@ CREATE TABLE `service` (
 	`date_created`	TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	`default price`	FLOAT NOT NULL,
 	PRIMARY KEY(`service_id`)
-);
+)AUTO_INCREMENT=1;
 
 CREATE TABLE `quotation` (
 	`quote_id`	INTEGER NOT NULL AUTO_INCREMENT,
@@ -52,7 +61,7 @@ CREATE TABLE `quotation` (
 	FOREIGN KEY(`client_id`) REFERENCES `client`(`client_id`),
 	CHECK(is_packageIN(0,1)),
 	PRIMARY KEY(`quote_id`)
-);
+)AUTO_INCREMENT=1;
 
 CREATE TABLE `quotation_detail` (
 	`quote_detail_id`	INTEGER NOT NULL AUTO_INCREMENT,
@@ -64,7 +73,7 @@ CREATE TABLE `quotation_detail` (
 	FOREIGN KEY(`quote_id`) REFERENCES `quotation`(`quote_id`),
 	FOREIGN KEY(`service_id`) REFERENCES `service`(`service_id`),
 	PRIMARY KEY(`quote_detail_id`)
-);
+)AUTO_INCREMENT=1;
 
 CREATE TABLE `invoice` (
 	`invoice_id`	INTEGER NOT NULL AUTO_INCREMENT,
@@ -73,4 +82,4 @@ CREATE TABLE `invoice` (
 	`quote_id`	INTEGER,
 	PRIMARY KEY(`invoice_id`),
 	FOREIGN KEY(`quote_id`) REFERENCES `quotation`(`quote_id`)
-);
+)AUTO_INCREMENT=1;
