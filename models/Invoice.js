@@ -11,8 +11,8 @@ var Invoice = {
     return db.query('SELECT * FROM invoice WHERE invoice_id=?', [id], callback);
   },
   addInvoice: function(Invoice, callback) {
-    return db.query('INSERT INTO invoice(invoice_no, date_created, quote_id) VALUES(?, ?, ?)',
-                                        [Invoice.invoice_no,Invoice.date_created,Invoice.quote_id], callback);
+    return db.query('INSERT INTO invoice(invoice_no, quote_id) VALUES(?, ?)',
+                                        [Invoice.invoice_no,Invoice.quote_id], callback);
   },
   deleteInvoice: function(id, callback) {
     return db.query("DELETE FROM invoice where invoice_id=?", [id], callback);
