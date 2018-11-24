@@ -8,7 +8,8 @@ var cors=require('cors');
 var routes = require('./routes/index');
 var Clients = require('./routes/clients');
 var Admins = require('./routes/admins');
-var Quotations = require('./routes/quotations');
+var Invoices = require('./routes/invoices');
+var Services = require('./routes/services');
 var app = express();
 
 // view engine setup
@@ -27,7 +28,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/Clients', Clients);
 app.use('/Admins', Admins);
+<<<<<<< HEAD
 app.use('/Quotations', Quotations);
+=======
+app.use('/Invoices', Invoices);
+app.use('/Services', Services);
+>>>>>>> 501e5b09d9810a359f6bbffe2db2e1353db67a51
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
