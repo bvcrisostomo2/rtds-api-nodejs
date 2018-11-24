@@ -5,7 +5,7 @@ const uuidv4 = require('uuid/v4');
 var Client = {
   // all Clients
   getAllClients: function(callback) {
-    return db.query(`SELECT * FROM client`, callback);
+    return db.query(`SELECT * FROM admin`, callback);
   },
   getClientById: function(id, callback) {
     return db.query('SELECT * FROM client WHERE public_id=?', [id], callback);
